@@ -192,9 +192,6 @@ elif menu == "Contact":
     st.write("Email us at zuanxzy@gmail.com")
         wedges[index].set_linewidth(3)
 
-    plt.axis("equal")  # Keep circular shape
-    return fig
-
 # Button to spin the wheel
 if st.button("Spin the Wheel 🎡"):
     result = random.choice(options)

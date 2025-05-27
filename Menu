@@ -1,0 +1,23 @@
+import streamlit as st
+
+# Title of the website
+st.title("about-me")
+
+# Sidebar menu
+menu = st.sidebar.radio(
+    "Navigation Menu",
+    ("Home", "About", "Contact")
+)
+
+# Content based on menu selection
+if menu == "Home":
+    st.header("Welcome to the Home Page")
+    st.write("This is the home section of the app.")
+
+elif menu == "About":
+    st.header("About This App")
+    st.write("This app was built using Streamlit.")
+
+elif menu == "Contact":
+    st.header("Contact Information")
+    st.write("Email us at contact@example.com")

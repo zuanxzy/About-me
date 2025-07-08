@@ -125,8 +125,7 @@ if submitted:
     else:
         st.error("❗ Sila lengkapkan semua bahagian.")
 
-#MAP
-import pandas as pd
+#--------MAP--------
 
 st.write("---")
 st.header("📍 Lokasi SMART College")

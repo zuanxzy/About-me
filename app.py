@@ -68,11 +68,10 @@ with st.container():
 #DAD JOKE
 import streamlit as st
 
-st.title("Selamat Datang ke Website Lawak Aku 😂")
+st.title("Tekan Butang untuk Tengok Video Meme 🎥")
 
-if st.button("Monyet Hot😈"):
-    st.warning("Kan aku dah kata jangan tekan 😆")
-     st.video("https://i.imgflip.com/49iy5a.mp4")
+if st.button("Tunjuk Video 😎"):
+    st.video("https://i.imgflip.com/49iy5a.mp4")
 
 #projects
 with st.container():

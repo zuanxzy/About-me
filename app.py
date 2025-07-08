@@ -4,6 +4,10 @@ from pathlib import Path
 import requests
 from streamlit_lottie import st_lottie
 import os 
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from dotenv import load_dotenv
 
 # ---------- SETTINGS ----------
 st.set_page_config(page_title="About Me", page_icon="👋", layout="wide")

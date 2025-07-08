@@ -189,4 +189,4 @@ elif menu == "About":
 
 elif menu == "Contact":
     st.header("Contact Information")
-    st.write("Email us at zuanxzy@gmail.com")
+    st.write("Email me at zuanxzy@gmail.com")

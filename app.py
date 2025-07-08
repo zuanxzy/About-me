@@ -13,18 +13,6 @@ st.set_page_config(page_title="About Me", page_icon="👋", layout="wide")
 
 import time
 
-import time
-
-# === SIDEBAR TUTORIAL (once only) ===
-if "show_sidebar_hint" not in st.session_state:
-    st.session_state.show_sidebar_hint = True
-
-if st.session_state.show_sidebar_hint:
-    st.markdown("""
-        <div style="
-            position: fixed;
-            top: 2import time
-
 if "show_sidebar_hint" not in st.session_state:
     st.session_state.show_sidebar_hint = True
 
@@ -58,7 +46,6 @@ if st.session_state.show_sidebar_hint:
     # Auto-hide after 5 seconds
     time.sleep(5)
     st.session_state.show_sidebar_hint = False
-
 
 
 # ===== CSS =====

@@ -68,8 +68,9 @@ with st.container():
         st_lottie(lottie_coding, height=300, key="coding")
 #DAD JOKE
 if st.button("Jangan Tekan 😈"):
-    st.warning("KOKEKAB")
-    st.image("kokekab.jpg")
+    st.warning("Kan aku dah kata jangan tekan 😆")
+    st.image("kokekab.jpg", caption="Padan muka kau tekan 😝", use_column_width=True)
+    
 
 
 #projects

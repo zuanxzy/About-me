@@ -3,6 +3,8 @@ from PIL import Image
 from pathlib import Path
 import requests
 from streamlit_lottie import st_lottie
+import folium
+from streamlit_folium import st_folium
 
 # Penting untuk contact form
 import os

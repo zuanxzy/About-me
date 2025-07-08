@@ -96,6 +96,27 @@ with st.container():
 
     if submitted:
         if name and email and message:
-            st.success("Terima kasih! Mesej anda telah dihantar (sebenarnya belum, ini dummy sahaja)")
+            try:
+                sender_email = os.getenv("EMAIL_USER")
+                receiver_email = os.getenv("EMAIL_TO")
+                password = os.getenv("EMAIL_PASS")
+
+                subject = "New Message from Streamlit Contact Form"
+                body = f"Name: {name}\nEmail: {email}\nMessage: {message}"
+
+                msg = MIMEMultipart()
+                msg['From'] = sender_email
+                msg['To'] = receiver_email
+                msg['Subject'] = subject
+                msg.attach(MIMEText(body, 'plain'))
+
+                with smtplib.SMTP("smtp.gmail.com", 587) as server:
+                    server.starttls()
+                    server.login(sender_email, password)
+                    server.sendmail(sender_email, receiver_email, msg.as_string())
+
+                st.success("✅ Mesej berjaya dihantar!")
+            except Exception as e:
+                st.error(f"❌ Gagal hantar emel: {e}")
         else:
-            st.error("Sila isi semua bahagian dahulu.")
+            st.error("❗ Sila isi semua bahagian dahulu.")

@@ -69,9 +69,7 @@ with st.container():
 #DAD JOKE
 if st.button("Jangan Tekan 😈"):
     st.warning("KOKEKAB")
-    st.image("st.image("gambar/lawak1.jpg", caption="Haa tekan lagi 😆")
-", caption="Padan muka kau tekan 😝", use_column_width=True)
-
+    st.image("-1621394646.png", caption="Haa tekan lagi 😆")
 
 
 #projects

@@ -71,20 +71,20 @@ with st.container():
 # ---------- GALLERY ----------
 with st.container():
     st.write("---")
-    st.header("📸 My Gallery")
+    st.header("📸 My Saya Gallery")
     img_col1, img_col2, img_col3 = st.columns(3)
     with img_col1:
-        st.image(img1, caption="Kucing 1", use_container_width=True)
+        st.image(img1, caption="Me Sleep", use_container_width=True)
     with img_col2:
-        st.image(img2, caption="Kucing 2", use_container_width=True)
+        st.image(img2, caption="Me Wekap", use_container_width=True)
     with img_col3:
-        st.image(img3, caption="Kucing 3", use_container_width=True)
+        st.image(img3, caption="Me Study", use_container_width=True)
 
 # ---------- JOKE VIDEO ----------
 with st.container():
     st.write("---")
-    st.header("🎥 Monyet Joget (Lawak)")
-    if st.button("TENGOK MONYET AFRIKA 😎"):
+    st.header("🎥 Monyet Joget")
+    if st.button("SYBAU 😎"):
         st.markdown("""
         <video width="100%" autoplay controls loop>
             <source src="https://i.imgflip.com/49iy5a.mp4" type="video/mp4">
@@ -99,7 +99,7 @@ with st.form("contact_form"):
     name = st.text_input("Nama")
     email = st.text_input("Email")
     message = st.text_area("Mesej")
-    submitted = st.form_submit_button("Hantar")
+    submitted = st.form_submit_button("SEND")
 
 if submitted:
     if name and email and message:
@@ -134,7 +134,7 @@ st.header("📍 Lokasi SMART College")
 smart_location = [3.1442368716195292, 101.72928812695515]
 
 # Guna tiles yang ringan dan jelas
-m = folium.Map(location=smart_location, zoom_start=17, tiles="CartoDB positron")
+m = folium.Map(location=smart_location, zoom_start=17,)
 
 # Letak marker
 folium.Marker(smart_location, tooltip="SMART College", popup="SMART College, Kuala Lumpur").add_to(m)

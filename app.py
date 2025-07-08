@@ -93,7 +93,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 # Title of the app
-st.title("Contact Form")
+st.title("Contact Form, not working animor hiks") 
 
 # Create a form
 with st.form("contact_form"):

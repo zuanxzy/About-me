@@ -159,12 +159,14 @@ st.markdown("""
 
 # ===== FOOTER =====
 st.markdown("""
-    <hr style="margin-top: 50px; margin-bottom: 10px; border: 0.5px solid #ccc;" />
-    <div style='text-align: center; color: gray; font-size: 14px; padding-bottom: 15px;'>
-        Dibina dengan ❤️ oleh Muhammad Ridzuan • <a href='mailto:ridzuan245z@gmail.com'>Email Me</a> • 
-        <a href='https://linktr.ee/zunohuzz' target='_blank'>Linktree</a><br>
-        © 2025 All Rights Reserved
+    <hr style="margin-top: 50px; margin-bottom: 10px; border: 0.5px solid #e0e0e0;" />
+    <div style='text-align: center; font-size: 14px; color: #777; padding-bottom: 20px;'>
+        Built with ❤️ by <strong>Muhammad Ridzuan</strong> | 
+        <a href='mailto:ridzuan245z@gmail.com' style='color:#555; text-decoration: none;'>Email</a> • 
+        <a href='https://linktr.ee/zunohuzz' target='_blank' style='color:#555; text-decoration: none;'>Linktree</a><br>
+        © 2025 Muhammad Ridzuan. All rights reserved.
     </div>
 """, unsafe_allow_html=True)
+
 
 

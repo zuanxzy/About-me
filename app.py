@@ -90,40 +90,35 @@ with st.container():
         """, unsafe_allow_html=True)
 
 # ---------- CONTACT FORM ----------
-with st.container():
-    st.write("---")
-    st.header("📬 Contact Me")
 
-    with st.form("contact_form"):
-        name = st.text_input("Nama")
-        email = st.text_input("Email")
-        message = st.text_area("Mesej")
-        submitted = st.form_submit_button("Hantar")
+st.header("📬 Test Contact Form")
 
-    if submitted:
-        if name and email and message:
-            try:
-                # Guna Streamlit Secrets
-                sender_email = st.secrets["EMAIL_USER"]
-                receiver_email = st.secrets["EMAIL_TO"]
-                password = st.secrets["EMAIL_PASS"]
+with st.form("contact_form"):
+    name = st.text_input("Nama")
+    email = st.text_input("Email")
+    message = st.text_area("Mesej")
+    submitted = st.form_submit_button("Hantar")
 
-                subject = "New Message from Streamlit Contact Form"
-                body = f"Name: {name}\nEmail: {email}\nMessage: {message}"
+if submitted:
+    if name and email and message:
+        try:
+            sender = st.secrets["EMAIL_USER"]
+            pwd = st.secrets["EMAIL_PASS"]
+            receiver = st.secrets["EMAIL_TO"]
 
-                msg = MIMEMultipart()
-                msg['From'] = sender_email
-                msg['To'] = receiver_email
-                msg['Subject'] = subject
-                msg.attach(MIMEText(body, 'plain'))
+            msg = MIMEMultipart()
+            msg["From"] = sender
+            msg["To"] = receiver
+            msg["Subject"] = "Contact Form Test"
+            msg.attach(MIMEText(f"Name: {name}\nEmail: {email}\nMessage: {message}", "plain"))
 
-                with smtplib.SMTP("smtp.gmail.com", 587) as server:
-                    server.starttls()
-                    server.login(sender_email, password)
-                    server.sendmail(sender_email, receiver_email, msg.as_string())
+            with smtplib.SMTP("smtp.gmail.com", 587) as server:
+                server.starttls()
+                server.login(sender, pwd)
+                server.sendmail(sender, receiver, msg.as_string())
 
-                st.success("✅ Mesej berjaya dihantar!")
-            except Exception as e:
-                st.error(f"❌ Gagal hantar emel: {e}")
-        else:
-            st.error("❗ Sila isi semua bahagian dahulu.")
+            st.success("✅ Emel berjaya dihantar!")
+        except Exception as e:
+            st.error(f"❌ Gagal hantar emel: {e}")
+    else:
+        st.error("❗ Sila lengkapkan semua bahagian.")

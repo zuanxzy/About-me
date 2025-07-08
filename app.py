@@ -71,9 +71,9 @@ import streamlit as st
 st.title("Click button tu kalau nak tengok monyet joget 🎥")
 
 if st.button("MONYET AFRIKA UTARA 😎"):
-    st.markdown(
+       st.markdown(
         """
-        <video width="100%" autoplay loop>
+        <video width="100%" controls loop>
             <source src="https://i.imgflip.com/49iy5a.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>

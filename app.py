@@ -184,8 +184,6 @@ def draw_roulette(selected_option=None):
         wedges[index].set_edgecolor("yellow")
 
 # Sidebar menu
-menu = st.sidebar.selectbox("Navigation", ["Cat Photo", "Cat Video", "About me"])
-
 import streamlit as st
 from PIL import Image
 

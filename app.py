@@ -22,7 +22,7 @@ if st.session_state.show_sidebar_hint:
         <div style="
             position: fixed;
             top: 20px;
-            left: 40px;
+            left: 70px;
             background-color: #fffae6;
             padding: 12px 18px;
             border-radius: 8px;

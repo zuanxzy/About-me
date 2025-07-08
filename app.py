@@ -134,37 +134,32 @@ if submitted:
             sender_email = os.environ.get("EMAIL_USER")
             receiver_email = os.environ.get("EMAIL_USER")
             password = os.environ.get("EMAIL_PASS")
-            # ...rest of your code...
+
+            # Create the email
+            subject = "New Contact Form Submission"
+            body = f"""
+            Name: {name}
+            Email: {email}
+            Message: {message}
+            """
+
+            msg = MIMEMultipart()
+            msg['From'] = sender_email
+            msg['To'] = receiver_email
+            msg['Subject'] = subject
+            msg.attach(MIMEText(body, 'plain'))
+
+            # Send the email
+            with smtplib.SMTP('smtp.gmail.com', 587) as server:
+                server.starttls()
+                server.login(sender_email, password)
+                server.sendmail(sender_email, receiver_email, msg.as_string())
+
+            st.success("Thank you for your submission! We will get back to you soon.")
         except Exception as e:
             st.error(f"An error occurred while sending the email: {e}")
     else:
         st.error("Please fill out all fields.")
-
-                # Create the email
-                subject = "New Contact Form Submission"
-                body = f"""
-                Name: {name}
-                Email: {email}
-                Message: {message}
-                """
-
-                msg = MIMEMultipart()
-                msg['From'] = sender_email
-                msg['To'] = receiver_email
-                msg['Subject'] = subject
-                msg.attach(MIMEText(body, 'plain'))
-
-                # Send the email
-                with smtplib.SMTP('smtp.gmail.com', 587) as server:
-                    server.starttls()  # Secure the connection
-                    server.login(sender_email, password)
-                    server.sendmail(sender_email, receiver_email, msg.as_string())
-
-                st.success("Thank you for your submission! We will get back to you soon.")
-            except Exception as e:
-                st.error(f"An error occurred while sending the email: {e}")
-        else:
-            st.error("Please fill out all fields.")
 
 
 

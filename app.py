@@ -14,10 +14,24 @@ def load_lottieurl(url):
     return r.json()
 #use local css
 def local_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+    try:
+        with open(file_name) as f:
+            st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+    except FileNotFoundError:
+        st.warning("Custom CSS file not found.")
+
+def load_lottieurl(url):
+    try:
+        r = requests.get(url)
+        if r.status_code != 200:
+            return None
+        return r.json()
+    except Exception as e:
+        st.warning(f"Failed to load Lottie animation: {e}")
+        return None
 
 local_css("style/style.css")
+
 
 #load assets
 lottie_coding = load_lottieurl("...json")
@@ -114,13 +128,12 @@ from email.mime.multipart import MIMEMultipart
 st.title("Contact Form, not working animor hiks") 
 
 # Create a form
-with st.form("contact_form"):
-    st.write("Please fill out the form below:")
-
-    # Input fields
-    name = st.text_input("Name")
-    email = st.text_input("Email")
-    message = st.text_area("Message")
+         if name and email and message:
+             try:
+                # Email configuration
+sender_email = os.environ.get("ridzuan245z@gmail.com")
+receiver_email = os.environ.get("ridzuan245z@gmail.com")
+password = os.environ.get("hetp hnuy tlrj mehk")
 
     # Submit button
     submitted = st.form_submit_button("Submit")
@@ -130,10 +143,11 @@ with st.form("contact_form"):
         # Validate inputs
         if name and email and message:
             try:
-                # Email configuration
-sender_email = os.environ.get("ridzuan245z@gmail.com")
-receiver_email = os.environ.get("ridzuan245z@gmail.com")
-password = os.environ.get("ridzuan2005")
+                
+# Email configuration
+sender_email = os.environ.get("SENDER_EMAIL")
+receiver_email = os.environ.get("RECEIVER_EMAIL")
+password = os.environ.get("EMAIL_PASSWORD")
 
                 # Create the email
                 subject = "New Contact Form Submission"

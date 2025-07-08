@@ -28,7 +28,7 @@ if st.session_state.show_sidebar_hint:
     <div style="
         position: fixed;
         top: 10px;
-        left: 10px;
+        left: 80px;
         z-index: 9999;
         background: linear-gradient(135deg, #ffecd2, #fcb69f);
         padding: 12px 18px;

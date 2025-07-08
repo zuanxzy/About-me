@@ -67,11 +67,13 @@ with st.container():
     with right_column:
         st_lottie(lottie_coding, height=300, key="coding")
 #DAD JOKE
+st.title("Website Lawak")
+
 if st.button("Jangan Tekan 😈"):
     st.warning("Kan aku dah kata jangan tekan 😆")
-    st.image("kokekab1.jpg", caption="Padan muka kau tekan 😝", use_column_width=True)
+    img = Image.open("kokekab1.jpg")
+    st.image(img, caption="Padan muka kau 😝", use_column_width=True)
     
-
 
 #projects
 with st.container():

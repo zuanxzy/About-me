@@ -11,6 +11,13 @@ from email.mime.multipart import MIMEMultipart
 # ===== SETTINGS =====
 st.set_page_config(page_title="About Me", page_icon="👋", layout="wide")
 
+# ===== LOAD CUSTOM CSS =====
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+local_css("style/style.css") 
+
 # ===== CSS =====
 def local_css(file_name):
     with open(file_name) as f:

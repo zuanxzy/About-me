@@ -31,3 +31,30 @@ button[type=submit]:hover {
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 header {visibility: hidden;}
+
+/* Besarkan dan gelapkan teks di sidebar */
+.css-1v0mbdj p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Buat radio button (arrow) lebih besar dan jelas */
+.stRadio > div {
+    gap: 0.5rem;
+}
+.stRadio label {
+    font-size: 17px;
+    font-weight: 600;
+}
+.stRadio div[role="radiogroup"] > div {
+    padding: 8px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.stRadio div[role="radiogroup"] > div:hover {
+    background-color: #f0f0f0;
+    border-color: #888;
+}

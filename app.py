@@ -186,12 +186,6 @@ def draw_roulette(selected_option=None):
 # Sidebar menu
 menu = st.sidebar.selectbox("Navigation", ["Cat Photo", "Cat Video", "About Me"])
 
-# Page: Cat Photo
-if menu == "Cat Photo":
-    st.title("📸 Gambar Kucing")
-    try:
-        img = Image.open("https://i.imgflip.com/2/33egr8.jpg")
-
 # Page: About Me
 elif menu == "About Me":
     st.title("👤 Tentang Saya")

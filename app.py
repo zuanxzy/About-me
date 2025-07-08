@@ -9,44 +9,36 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import time
 
-# ===== PAGE CONFIG =====
+# ===== SETTINGS =====
 st.set_page_config(page_title="About Me", page_icon="👋", layout="wide")
 
-# ===== LOAD CUSTOM CSS =====
+# ===== LOAD CSS =====
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 local_css("style/style.css")
 
-# ===== SIDEBAR POPUP HINT =====
+# ===== POP-UP SIDEBAR HINT (5s) =====
 if "show_sidebar_hint" not in st.session_state:
     st.session_state.show_sidebar_hint = True
 
 if st.session_state.show_sidebar_hint:
     st.markdown("""
-        <div style="
-            position: fixed;
-            top: 12px;
-            left: 12px;
-            z-index: 9999;
-            background: linear-gradient(135deg, #f6d365, #fda085, #a1c4fd, #c2e9fb);
-            padding: 10px 16px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            color: black;
-            font-weight: 600;
-            font-size: 14px;
-            animation: fadeIn 1s ease-in-out;
-        ">
-            👉 <span style="font-size:18px;">Click here to open the sidebar menu!</span>
-        </div>
-        <style>
-        @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
-        }
-        </style>
+    <div style="
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 9999;
+        background: linear-gradient(135deg, #ffecd2, #fcb69f);
+        padding: 12px 18px;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        font-weight: 600;
+        font-size: 14px;
+    ">
+        👉 <span style="font-size:17px;">Click here to open the sidebar menu!</span>
+    </div>
     """, unsafe_allow_html=True)
     time.sleep(5)
     st.session_state.show_sidebar_hint = False
@@ -69,7 +61,7 @@ img3 = Image.open("images/kucing3.jpg")
 
 # ===== SIDEBAR =====
 st.sidebar.title("📌 Navigation")
-page = st.sidebar.radio("Pergi ke:", ["Home", "Gallery", "Contact", "Location"])
+page = st.sidebar.radio("Go to", ["Home", "Gallery", "Contact", "Location"])
 
 # ===== PAGE: HOME =====
 if page == "Home":
@@ -79,9 +71,9 @@ if page == "Home":
             st.subheader("Hi, I'm Muhammad Ridzuan 👋")
             st.title("Diploma Student in Corporate Investigation")
             st.markdown("""
-                <div class='justified-text'>
-                I’m a 20-year-old student at SMART College, KL. Eager to gain real experience in fraud investigation, compliance, or internal audit. I’m adaptable, a fast learner, and ready to contribute!
-                </div>
+            <div class='justified-text'>
+            I'm a student at SMART College, KL. Currently seeking internship in fraud investigation, compliance or forensic audit. I’m a fast learner, analytical and highly motivated to grow.
+            </div>
             """, unsafe_allow_html=True)
             st.write("[🌐 My Linktree](https://linktr.ee/zunohuzz)")
         with right_col:
@@ -93,15 +85,14 @@ if page == "Home":
         with left_col:
             st.header("📚 What I Learn at SMART College")
             st.markdown("""
-                <div class='justified-text'>
-                I gained knowledge in corporate law, fraud investigation, digital forensics, and ethical practices. I also improved my teamwork and communication skills for real-world investigation work.
-                </div>
+            <div class='justified-text'>
+            My studies cover corporate law, fraud detection, digital forensics, and investigation reporting. I’ve also built strong teamwork and communication skills.
+            </div>
             """, unsafe_allow_html=True)
             st.write("[📄 My Resume](https://drive.google.com/file/d/1ee1u7Z7JFByLf4gfSn2biWBL7FmdSsaU/view?usp=drive_link)")
         with right_col:
             st_lottie(lottie_coding, height=300, key="coding")
 
-    # ===== SKILLSET =====
     st.write("---")
     st.header("🧠 My Skillset")
     skills = {
@@ -118,32 +109,31 @@ if page == "Home":
 # ===== PAGE: GALLERY =====
 elif page == "Gallery":
     with st.container():
-        st.header("📸 My Saya Gallery")
+        st.header("📸 My Gallery")
         col1, col2, col3 = st.columns(3)
-        with col1: st.image(img1, caption="Me Sleep", use_container_width=True)
-        with col2: st.image(img2, caption="Me Wekap", use_container_width=True)
-        with col3: st.image(img3, caption="Me Study", use_container_width=True)
+        col1.image(img1, caption="Me Sleep", use_container_width=True)
+        col2.image(img2, caption="Me Wekap", use_container_width=True)
+        col3.image(img3, caption="Me Study", use_container_width=True)
 
     with st.container():
         st.write("---")
         st.header("🎥 Monyet Joget")
         if st.button("SYBAU 😎"):
             st.markdown("""
-                <video width="100%" autoplay controls loop>
-                    <source src="https://i.imgflip.com/49iy5a.mp4" type="video/mp4">
-                </video>
+            <video width="100%" autoplay controls loop>
+                <source src="https://i.imgflip.com/49iy5a.mp4" type="video/mp4">
+            </video>
             """, unsafe_allow_html=True)
 
 # ===== PAGE: CONTACT =====
 elif page == "Contact":
-    st.header("📬 Contact Form")
+    st.header("📬 Contact Me")
     with st.form("contact_form"):
-        name = st.text_input("Nama")
+        name = st.text_input("Your Name")
         email = st.text_input("Email")
-        message = st.text_area("Mesej")
-        submitted = st.form_submit_button("SEND")
-
-    if submitted:
+        message = st.text_area("Message")
+        sent = st.form_submit_button("SEND")
+    if sent:
         if name and email and message:
             try:
                 sender = st.secrets["EMAIL_USER"]
@@ -153,36 +143,31 @@ elif page == "Contact":
                 msg = MIMEMultipart()
                 msg["From"] = sender
                 msg["To"] = receiver
-                msg["Subject"] = "Contact Form Message"
+                msg["Subject"] = "Contact Form"
                 msg.attach(MIMEText(f"Name: {name}\nEmail: {email}\nMessage: {message}", "plain"))
 
                 with smtplib.SMTP("smtp.gmail.com", 587) as server:
                     server.starttls()
                     server.login(sender, pwd)
                     server.sendmail(sender, receiver, msg.as_string())
-
-                st.success("✅ Emel berjaya dihantar!")
+                st.success("✅ Email sent successfully!")
             except Exception as e:
-                st.error(f"❌ Gagal hantar emel: {e}")
+                st.error(f"❌ Error sending email: {e}")
         else:
-            st.error("❗ Sila lengkapkan semua bahagian.")
+            st.error("❗ Please fill all fields.")
 
 # ===== PAGE: LOCATION =====
 elif page == "Location":
-    st.header("📍 Lokasi SMART College")
-    m = folium.Map(location=[3.1442368716195292, 101.72928812695515], zoom_start=17)
-    folium.Marker(
-        [3.1442368716195292, 101.72928812695515],
-        tooltip="SMART College",
-        popup="SMART College, Kuala Lumpur"
-    ).add_to(m)
-    st_folium(m, width=700, height=500)
+    st.header("📍 Location of SMART College")
+    smart_location = [3.1442368716195292, 101.72928812695515]
+    map = folium.Map(location=smart_location, zoom_start=17)
+    folium.Marker(smart_location, tooltip="SMART College", popup="SMART College, KL").add_to(map)
+    st_folium(map, width=700, height=500)
 
-# ===== MUSIC =====
+# ===== BACKGROUND MUSIC =====
 st.markdown("""
     <audio autoplay loop>
         <source src="https://www.bensound.com/bensound-music/bensound-dreams.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
     </audio>
 """, unsafe_allow_html=True)
 
@@ -191,12 +176,9 @@ st.markdown("""
     <hr style="margin-top: 50px; margin-bottom: 10px; border: 0.5px solid #e0e0e0;" />
     <div style='text-align: center; font-size: 14px; color: #777; padding-bottom: 20px;'>
         Built with ❤️ by <strong>Muhammad Ridzuan</strong> |
-        <a href='mailto:ridzuan245z@gmail.com' style='color:#555; text-decoration: none;'>Email</a> • 
+        <a href='mailto:ridzuan245z@gmail.com' style='color:#555; text-decoration: none;'>Email</a> •
         <a href='https://linktr.ee/zunohuzz' target='_blank' style='color:#555; text-decoration: none;'>Linktree</a><br>
         © 2025 Muhammad Ridzuan. All rights reserved.
     </div>
 """, unsafe_allow_html=True)
-
-
-
 

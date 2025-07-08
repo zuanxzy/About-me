@@ -190,4 +190,3 @@ elif menu == "About":
 elif menu == "Contact":
     st.header("Contact Information")
     st.write("Email us at zuanxzy@gmail.com")
-        wedges[index].set_linewidth(3)

@@ -131,3 +131,12 @@ elif page == "Location":
     m = folium.Map(location=smart_location, zoom_start=17)
     folium.Marker(smart_location, tooltip="SMART College", popup="SMART College, Kuala Lumpur").add_to(m)
     st_folium(m, width=700, height=500)
+
+#---------ambient---------
+st.markdown("""
+    <audio autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-dreams.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+""", unsafe_allow_html=True)
+

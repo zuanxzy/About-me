@@ -13,39 +13,32 @@ st.set_page_config(page_title="About Me", page_icon="👋", layout="wide")
 
 import time
 
+# === TUTORIAL BUBBLE / GUIDE ===
 if "show_sidebar_hint" not in st.session_state:
     st.session_state.show_sidebar_hint = True
 
 if st.session_state.show_sidebar_hint:
     st.markdown("""
-    <div style="
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        z-index: 9999;
-        background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
-        padding: 10px 16px;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        color: black;
-        font-weight: 600;
-        font-size: 14px;
-        animation: fadeIn 1s ease-in-out;
-    ">
-        🎯 <span style="font-size:18px;">👈</span> Click here to open the sidebar menu!
-    </div>
-
-    <style>
-    @keyframes fadeIn {
-        from {opacity: 0;}
-        to {opacity: 1;}
-    }
-    </style>
+        <div style="
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #fffae6;
+            padding: 12px 18px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            z-index: 9999;
+            font-size: 15px;
+            font-weight: 500;
+            color: #333;
+        ">
+            👉 Tip: Click the arrow at the top-left to open the sidebar menu.
+        </div>
     """, unsafe_allow_html=True)
 
-    # Auto-hide after 5 seconds
     time.sleep(5)
     st.session_state.show_sidebar_hint = False
+
 
 
 # ===== CSS =====

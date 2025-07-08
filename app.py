@@ -3,6 +3,7 @@ import requests
 import streamlit as st
 from streamlit_lottie import st_lottie
 from pathlib import Path
+import os
 
 st.set_page_config(page_title="ABOUT ME", page_icon=":tada:", layout= "wide")
 
@@ -130,7 +131,6 @@ with st.form("contact_form"):
         if name and email and message:
             try:
                 # Email configuration
-import os
 sender_email = os.environ.get("ridzuan245z@gmail.com")
 receiver_email = os.environ.get("ridzuan245z@gmail.com")
 password = os.environ.get("ridzuan2005")

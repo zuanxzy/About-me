@@ -198,24 +198,10 @@ menu = st.sidebar.selectbox("Navigation", ["Cat Photo", "Cat Video", "About Me"]
 if menu == "Cat Photo":
     st.title("📸 Gambar Kucing")
     try:
-        img = Image.open("images/kucing1.jpg")
-        st.image(img, caption="Kucing tengah pose 🐱", width=300)
+        img = Image.open("https://i.imgflip.com/2/33egr8.jpg")
+        st.image(img, caption="Kucing1 tengah pose 🐱", width=300)
     except:
         st.error("Gambar tak jumpa! Pastikan 'images/kucing1.jpg' wujud.")
-
-# Page: Cat Video
-elif menu == "Cat Video":
-    st.title("🎥 Video Kucing Lawak")
-    if st.button("Play Video"):
-        st.markdown(
-            """
-            <video width="100%" controls loop>
-                <source src="https://i.imgflip.com/49iy5a.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            """,
-            unsafe_allow_html=True
-        )
 
 # Page: About Me
 elif menu == "About Me":

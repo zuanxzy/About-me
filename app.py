@@ -169,23 +169,11 @@ def draw_roulette(selected_option=None):
         index = options.index(selected_option)
         wedges[index].set_edgecolor("yellow")
 
-# Title of the website
-st.title("About-me")
-
 # Sidebar menu
 menu = st.sidebar.radio(
     "Navigation Menu",
     ("Home", "About", "Contact")
 )
-
-# Content based on menu selection
-if menu == "Home":
-    st.header("Welcome to the Home Page")
-    st.write("This is the home section of the app.")
-
-elif menu == "About":
-    st.header("About This App")
-    st.write("This app was built using Streamlit.")
 
 elif menu == "Contact":
     st.header("Contact Information")

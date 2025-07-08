@@ -69,7 +69,7 @@ with st.container():
 #DAD JOKE
 if st.button("Jangan Tekan 😈"):
     st.warning("KOKEKAB")
-    st.image("-1621394646.png", caption="Haa tekan lagi 😆")
+    st.image("kokekab.jpg")
 
 
 #projects

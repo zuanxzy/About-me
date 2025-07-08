@@ -191,21 +191,6 @@ if menu == "Laman Utama":
     st.title("🏠 Laman Utama")
     st.write("Selamat datang ke website aku!")
 
-elif menu == "Video":
-    st.title("🎥 Video Meme")
-    if st.button("Tunjuk Video"):
-        st.markdown(
-            """
-            <video width="100%" controls loop>
-                <source src="https://i.imgflip.com/49iy5a.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            """,
-            unsafe_allow_html=True
-        )
-
 elif menu == "Tentang Saya":
     st.title("🧑 Tentang Saya")
     st.write("Nama aku Ridzuan. Aku suka coding dan kucing 😸.")
-    ("Home", "About", "Contact")
-)

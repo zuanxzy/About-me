@@ -102,3 +102,56 @@ button[type=submit]:hover {
     filter: hue-rotate(220deg) brightness(1.5);
 }
 
+/* ===== MODERN MINIMALIST SIDEBAR ===== */
+[data-testid="stSidebar"] {
+    background: linear-gradient(to bottom, #f7f8fa, #eaeef3);
+    border-right: none;
+    padding-top: 2rem;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+[data-testid="stSidebar"] .css-1v0mbdj {
+    padding: 0 20px;
+}
+
+/* Sidebar title and radio label */
+[data-testid="stSidebar"] h1, 
+[data-testid="stSidebar"] h2, 
+[data-testid="stSidebar"] h3, 
+[data-testid="stSidebar"] h4 {
+    color: #222;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.stRadio > div {
+    gap: 0.4rem;
+}
+.stRadio label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #444;
+}
+
+.stRadio div[role="radiogroup"] > div {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: none;
+    background-color: #f5f5f5;
+    transition: all 0.2s ease;
+}
+
+.stRadio div[role="radiogroup"] > div:hover {
+    background-color: #e0e0e0;
+}
+
+/* Scrollbar styling for sidebar */
+[data-testid="stSidebar"]::-webkit-scrollbar {
+    width: 6px;
+}
+
+[data-testid="stSidebar"]::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 6px;
+}

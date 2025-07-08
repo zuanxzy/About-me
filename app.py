@@ -130,9 +130,11 @@ with st.form("contact_form"):
         if name and email and message:
             try:
                 # Email configuration
-                sender_email = "zuanxzy@gmail.com"  # Replace with your email
-                receiver_email = "zuanxzy@gmail.com"  # Replace with your email
-                password = "evjl hpch xydw qzfu"  # Replace with your app password (see notes below)
+              import os
+
+sender_email = os.environ.get("SENDER_EMAIL")
+receiver_email = os.environ.get("RECEIVER_EMAIL")
+password = os.environ.get("EMAIL_PASSWORD")
 
                 # Create the email
                 subject = "New Contact Form Submission"
@@ -159,29 +161,6 @@ with st.form("contact_form"):
                 st.error(f"An error occurred while sending the email: {e}")
         else:
             st.error("Please fill out all fields.")
-
-
-#--------------roulette
-with st.container():
-    st.write("___")
-    st.header("ROULETTE")
-
-import random
-import matplotlib.pyplot as plt
-
-st.title("🎰 take me to internship yes/no") #
-
-# Define Yes/No sections
-options = ["Yes", "No"]
-colors = ["green", "red"]
-probabilities = [0.7, 0.3]  # 70% Yes, 30% No
-
-def draw_roulette(selected_option=None):
-    fig, ax = plt.subplots(figsize=(5, 5))
-    wedges, texts, autotexts = ax.pie(probabilities, labels=options, colors=colors, startangle=90, counterclock=False, autopct='%1.0f%%')
-   selected = random.choices(options, weights=probabilities)[0]
-draw_roulette(selected)
-st.write(f"Result: {selected}")
 
 
 

@@ -69,7 +69,8 @@ with st.container():
 #DAD JOKE
 if st.button("Jangan Tekan 😈"):
     st.warning("KOKEKAB")
-    st.image("https://www.google.com/url?sa=i&url=https%3A%2F%2Fsticker.ly%2Fs%2FNLHAM8&psig=AOvVaw2Im9y8SlJRV_EEmfmP4yYd&ust=1752036816287000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCJCe8eu7rI4DFQAAAAAdAAAAABAE", caption="Padan muka kau tekan 😝", use_column_width=True)
+    st.image("st.image("gambar/lawak1.jpg", caption="Haa tekan lagi 😆")
+", caption="Padan muka kau tekan 😝", use_column_width=True)
 
 
 

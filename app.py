@@ -23,32 +23,41 @@ if st.session_state.show_sidebar_hint:
     st.markdown("""
         <div style="
             position: fixed;
-            top: 20px;
-            left: 20px;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb, #a6c1ee);
-            padding: 14px 20px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-            z-index: 9999;
-            font-size: 15px;
-            font-weight: 600;
-            color: #000;
-            animation: fadeIn 0.5s ease-in-out;
-        ">
-            🌈 <span style="font-size:18px;">👉</span> Click the colorful arrow on the top-left to open the sidebar!
-        </div>
+            top: 2import time
 
-        <style>
-        @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
-        }
-        </style>
+if "show_sidebar_hint" not in st.session_state:
+    st.session_state.show_sidebar_hint = True
+
+if st.session_state.show_sidebar_hint:
+    st.markdown("""
+    <div style="
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 9999;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+        padding: 10px 16px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        color: black;
+        font-weight: 600;
+        font-size: 14px;
+        animation: fadeIn 1s ease-in-out;
+    ">
+        🎯 <span style="font-size:18px;">👈</span> Click here to open the sidebar menu!
+    </div>
+
+    <style>
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+    </style>
     """, unsafe_allow_html=True)
 
+    # Auto-hide after 5 seconds
     time.sleep(5)
     st.session_state.show_sidebar_hint = False
-
 
 
 

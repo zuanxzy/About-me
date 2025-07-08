@@ -133,7 +133,7 @@ st.title("Contact Form, not working animor hiks")
                  
 # Email configuration
 sender_email = os.environ.get("EMAIL_USER")
-receiver_email = os.environ.get("ridzuan245z@gmail.com")  # or different if you want submissions sent elsewhere
+receiver_email = os.environ.get("EMAIL_USER")  # or a different email if you want to send to someone else
 password = os.environ.get("EMAIL_PASS")
 
     # Submit button

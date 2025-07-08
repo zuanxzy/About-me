@@ -184,12 +184,6 @@ def draw_roulette(selected_option=None):
         wedges[index].set_edgecolor("yellow")
 
 # Sidebar menu
-import streamlit as st
-from PIL import Image
-
-st.set_page_config(page_title="My Cat Website", page_icon="🐱", layout="centered")
-
-# Sidebar menu
 menu = st.sidebar.selectbox("Navigation", ["Cat Photo", "Cat Video", "About Me"])
 
 # Page: Cat Photo

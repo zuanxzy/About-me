@@ -183,17 +183,5 @@ def draw_roulette(selected_option=None):
         index = options.index(selected_option)
         wedges[index].set_edgecolor("yellow")
 
-# Sidebar menu
-menu = st.sidebar.selectbox("Navigation", ["Cat Photo", "Cat Video", "About Me"])
-
-# Page: About Me
-elif menu == "About Me":
-    st.title("👤 Tentang Saya")
-    st.markdown("""
-    **Nama:** Ridzuan  
-    **Bidang:** Corporate Investigation, Fraud, IT  
-    **Minat:** Kucing 🐱, Coding 💻, Game 🎮  
-    **Cita-cita:** Jadi penyiasat yang boleh hack sistem 😎  
-    """)
 
 

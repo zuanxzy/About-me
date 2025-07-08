@@ -130,10 +130,11 @@ st.title("Contact Form, not working animor hiks")
 # Create a form
          if name and email and message:
              try:
-                # Email configuration
-sender_email = os.environ.get("ridzuan245z@gmail.com")
-receiver_email = os.environ.get("ridzuan245z@gmail.com")
-password = os.environ.get("hetp hnuy tlrj mehk")
+                 
+# Email configuration
+sender_email = os.environ.get("EMAIL_USER")
+receiver_email = os.environ.get("ridzuan245z@gmail.com")  # or different if you want submissions sent elsewhere
+password = os.environ.get("EMAIL_PASS")
 
     # Submit button
     submitted = st.form_submit_button("Submit")
@@ -141,13 +142,14 @@ password = os.environ.get("hetp hnuy tlrj mehk")
     # If the form is submitted
     if submitted:
         # Validate inputs
-        if name and email and message:
-            try:
-                
-# Email configuration
-sender_email = os.environ.get("SENDER_EMAIL")
-receiver_email = os.environ.get("RECEIVER_EMAIL")
-password = os.environ.get("EMAIL_PASSWORD")
+if name and email and message:
+    try:
+        sender_email = os.environ.get("EMAIL_USER")
+        receiver_email = os.environ.get("EMAIL_USER")
+        password = os.environ.get("EMAIL_PASS")
+        # ... rest of your code ...
+    except Exception as e:
+        st.error(f"An error occurred while sending the email: {e}")
 
                 # Create the email
                 subject = "New Contact Form Submission"

@@ -184,13 +184,4 @@ def draw_roulette(selected_option=None):
         wedges[index].set_edgecolor("yellow")
 
 # Sidebar menu
-menu = st.sidebar.selectbox("Navigasi", ["Laman Utama", "Video", "Tentang Saya"])
-
-# Kandungan berdasarkan pilihan
-if menu == "Laman Utama":
-    st.title("🏠 Laman Utama")
-    st.write("Selamat datang ke website aku!")
-
-elif menu == "Tentang Saya":
-    st.title("🧑 Tentang Saya")
-    st.write("Nama aku Ridzuan. Aku suka coding dan kucing 😸.")
+menu = st.sidebar.selectbox("Cat Meme", ["Laman Utama", "Video", "Tentang Saya"])

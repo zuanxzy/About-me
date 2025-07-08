@@ -23,7 +23,7 @@ lottie_hai = load_lottieurl("https://lottie.host/afb5e48c-63ad-4589-a51a-069a8fa
 image_contact_form = Image.open("images/kucing1.jpg")
 image_lottie_animation = Image.open("images/kucing2.jpg")
 image_contact_form1 = Image.open("images/kucing3.jpg")
-
+image_button = Image.open("kucing5.jpeg")
 
 #header section
 with st.container():
@@ -67,10 +67,11 @@ with st.container():
     with right_column:
         st_lottie(lottie_coding, height=300, key="coding")
 #DAD JOKE
-st.title("Website Lawak")
-
 if st.button("Jangan Tekan 😈"):
-  
+      st.warning("Kan aku dah kata jangan tekan 😆")
+    img = Image.open("kucing.jpeg")
+    st.image(img, caption="Padan muka kau 😝", use_column_width=True)
+
     
 
 #projects

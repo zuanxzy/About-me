@@ -19,22 +19,6 @@ def local_css(file_name):
 
 local_css("style/style.css")
 
-#--------skillsets-------
-st.write("---")
-st.header("🧠 My Skillset")
-
-skills = {
-    "Digital Forensics": 80,
-    "Fraud Investigation": 85,
-    "Python (Basic)": 60,
-    "Report Writing": 75,
-    "Teamwork & Communication": 90
-}
-
-for skill, level in skills.items():
-    st.write(f"{skill}")
-    st.progress(level)
-
 # ===== ASSETS =====
 def load_lottieurl(url):
     try:
@@ -84,6 +68,22 @@ if page == "Home":
             st.write("[📄 My Resume](https://drive.google.com/file/d/1ee1u7Z7JFByLf4gfSn2biWBL7FmdSsaU/view?usp=drive_link)")
         with right_col:
             st_lottie(lottie_coding, height=300, key="coding")
+
+    # ===== SKILLSET SECTION =====
+    st.write("---")
+    st.header("🧠 My Skillset")
+
+    skills = {
+        "Digital Forensics": 80,
+        "Fraud Investigation": 85,
+        "Python (Basic)": 60,
+        "Report Writing": 75,
+        "Teamwork & Communication": 90
+    }
+
+    for skill, level in skills.items():
+        st.write(f"{skill}")
+        st.progress(level)
 
 # ===== PAGE: GALLERY =====
 elif page == "Gallery":

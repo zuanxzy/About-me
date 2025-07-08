@@ -193,6 +193,3 @@ st.markdown("""
     © 2025 Muhammad Ridzuan. All rights reserved.
 </div>
 """, unsafe_allow_html=True)
-
-""", unsafe_allow_html=True)
-

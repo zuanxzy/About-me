@@ -72,7 +72,7 @@ st.title("Selamat Datang ke Website Lawak Aku 😂")
 
 if st.button("Jangan Tekan 😈"):
     st.warning("Kan aku dah kata jangan tekan 😆")
-    st.image("https://i.imgflip.com/2/65939r.jpg", caption="Padan muka kau tekan 😝",use_container_width=False)
+    st.image("https://i.imgflip.com/2/65939r.jpg", caption="Padan muka kau tekan 😝", width=300)
 
 #projects
 with st.container():

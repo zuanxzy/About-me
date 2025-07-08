@@ -127,31 +127,18 @@ from email.mime.multipart import MIMEMultipart
 # Title of the app
 st.title("Contact Form, not working animor hiks") 
 
-# Create a form
-         if name and email and message:
-             try:
-                 
-# Email configuration
-sender_email = os.environ.get("EMAIL_USER")
-receiver_email = os.environ.get("EMAIL_USER")  # or a different email if you want to send to someone else
-password = os.environ.get("EMAIL_PASS")
-
-    # Submit button
-    submitted = st.form_submit_button("Submit")
-
     # If the form is submitted
-    if submitted:
-        # Validate inputs
-if name and email and message:
-    try:
-        sender_email = os.environ.get("EMAIL_USER")
-        receiver_email = os.environ.get("EMAIL_USER")
-        password = os.environ.get("EMAIL_PASS")
-        # ... rest of your code ...
-    except Exception as e:
-        st.error(f"An error occurred while sending the email: {e}")
-else:
-    st.error("Please fill out all fields.")
+       if submitted:
+        if name and email and message:
+            try:
+                sender_email = os.environ.get("EMAIL_USER")
+                receiver_email = os.environ.get("EMAIL_USER")
+                password = os.environ.get("EMAIL_PASS")
+                # ...rest of your code...
+            except Exception as e:
+                st.error(f"An error occurred while sending the email: {e}")
+        else:
+            st.error("Please fill out all fields.")
 
                 # Create the email
                 subject = "New Contact Form Submission"

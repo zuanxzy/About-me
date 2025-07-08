@@ -69,8 +69,8 @@ with st.container():
 st.title("Tekan butang untuk tengok kucing lawak 😸")
 if st.button("Jangan Tekan 😈"):
     st.warning("Kan aku dah kata jangan tekan 😆")
-    img = Image.open("images/kucing1.jpg")
-    st.image(img, caption="Padan muka kau tekan 😝", use_column_width=True)
+    st.image("https://raw.githubusercontent.com/zuanxzy/About-me/main/images/kucing5.jpg",
+         caption="Kucing 5 datang marah kau 😼", use_column_width=True)
 
 
     

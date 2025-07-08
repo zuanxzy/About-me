@@ -185,3 +185,46 @@ def draw_roulette(selected_option=None):
 
 # Sidebar menu
 menu = st.sidebar.selectbox("Navigation", ["Cat Photo", "Cat Video", "About me"])
+
+import streamlit as st
+from PIL import Image
+
+st.set_page_config(page_title="My Cat Website", page_icon="🐱", layout="centered")
+
+# Sidebar menu
+menu = st.sidebar.selectbox("Navigation", ["Cat Photo", "Cat Video", "About Me"])
+
+# Page: Cat Photo
+if menu == "Cat Photo":
+    st.title("📸 Gambar Kucing")
+    try:
+        img = Image.open("images/kucing1.jpg")
+        st.image(img, caption="Kucing tengah pose 🐱", width=300)
+    except:
+        st.error("Gambar tak jumpa! Pastikan 'images/kucing1.jpg' wujud.")
+
+# Page: Cat Video
+elif menu == "Cat Video":
+    st.title("🎥 Video Kucing Lawak")
+    if st.button("Play Video"):
+        st.markdown(
+            """
+            <video width="100%" controls loop>
+                <source src="https://i.imgflip.com/49iy5a.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            """,
+            unsafe_allow_html=True
+        )
+
+# Page: About Me
+elif menu == "About Me":
+    st.title("👤 Tentang Saya")
+    st.markdown("""
+    **Nama:** Ridzuan  
+    **Bidang:** Corporate Investigation, Fraud, IT  
+    **Minat:** Kucing 🐱, Coding 💻, Game 🎮  
+    **Cita-cita:** Jadi penyiasat yang boleh hack sistem 😎  
+    """)
+
+

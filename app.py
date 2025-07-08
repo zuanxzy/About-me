@@ -1,13 +1,9 @@
 import streamlit as st
 from PIL import Image
-from pathlib import Path
 import requests
 from streamlit_lottie import st_lottie
 import folium
 from streamlit_folium import st_folium
-
-# Penting untuk contact form
-import os
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -38,39 +34,41 @@ img1 = Image.open("images/kucing1.jpg")
 img2 = Image.open("images/kucing2.jpg")
 img3 = Image.open("images/kucing3.jpg")
 
-# ---------- HEADER ----------
-with st.container():
-    left_col, right_col = st.columns(2)
-    with left_col:
-        st.subheader("Hi, I'm Muhammad Ridzuan 👋")
-        st.title("Diploma Student in Corporate Investigation")
-        st.markdown("""
-        <div class='justified-text'>
-        Hello! My name is Muhammad Ridzuan Bin Darwin, and I am a 20-year-old student at SMART College, Kuala Lumpur. I’m excited to find internship opportunities in fraud investigation, compliance, or internal audit. I am a fast learner, adaptable, and motivated to contribute positively to a company.
-        </div>
-        """, unsafe_allow_html=True)
-        st.write("[🌐 My Linktree](https://linktr.ee/zunohuzz)")
-    with right_col:
-        st_lottie(lottie_hello, height=250, key="hello")
+# ---------- SIDEBAR MENU ----------
+st.sidebar.title("📌 Menu")
+menu = st.sidebar.radio("Pergi ke:", ["🏠 Home", "🖼️ Gallery", "🗺️ Map", "📬 Contact"])
 
-# ---------- ABOUT COLLEGE ----------
-with st.container():
-    st.write("---")
-    left_col, right_col = st.columns(2)
-    with left_col:
-        st.header("📚 What I Learn at SMART College")
-        st.markdown("""
-        <div class='justified-text'>
-        I gained knowledge in corporate law, fraud investigation, digital forensics, and ethical practices. I also improved soft skills like communication and teamwork, preparing me for real-world investigation work.
-        </div>
-        """, unsafe_allow_html=True)
-        st.write("[📄 My Resume](https://drive.google.com/file/d/1ee1u7Z7JFByLf4gfSn2biWBL7FmdSsaU/view?usp=drive_link)")
-    with right_col:
-        st_lottie(lottie_coding, height=300, key="coding")
+# ---------- PAGE CONTENT ----------
+if menu == "🏠 Home":
+    with st.container():
+        left_col, right_col = st.columns(2)
+        with left_col:
+            st.subheader("Hi, I'm Muhammad Ridzuan 👋")
+            st.title("Diploma Student in Corporate Investigation")
+            st.markdown("""
+            <div class='justified-text'>
+            Hello! My name is Muhammad Ridzuan Bin Darwin, and I am a 20-year-old student at SMART College, Kuala Lumpur. I’m excited to find internship opportunities in fraud investigation, compliance, or internal audit. I am a fast learner, adaptable, and motivated to contribute positively to a company.
+            </div>
+            """, unsafe_allow_html=True)
+            st.write("[🌐 My Linktree](https://linktr.ee/zunohuzz)")
+        with right_col:
+            st_lottie(lottie_hello, height=250, key="hello")
 
-# ---------- GALLERY ----------
-with st.container():
-    st.write("---")
+    with st.container():
+        st.write("---")
+        left_col, right_col = st.columns(2)
+        with left_col:
+            st.header("📚 What I Learn at SMART College")
+            st.markdown("""
+            <div class='justified-text'>
+            I gained knowledge in corporate law, fraud investigation, digital forensics, and ethical practices. I also improved soft skills like communication and teamwork, preparing me for real-world investigation work.
+            </div>
+            """, unsafe_allow_html=True)
+            st.write("[📄 My Resume](https://drive.google.com/file/d/1ee1u7Z7JFByLf4gfSn2biWBL7FmdSsaU/view?usp=drive_link)")
+        with right_col:
+            st_lottie(lottie_coding, height=300, key="coding")
+
+elif menu == "🖼️ Gallery":
     st.header("📸 My Saya Gallery")
     img_col1, img_col2, img_col3 = st.columns(3)
     with img_col1:
@@ -80,8 +78,6 @@ with st.container():
     with img_col3:
         st.image(img3, caption="Me Study", use_container_width=True)
 
-# ---------- JOKE VIDEO ----------
-with st.container():
     st.write("---")
     st.header("🎥 Monyet Joget")
     if st.button("SYBAU 😎"):
@@ -91,54 +87,43 @@ with st.container():
         </video>
         """, unsafe_allow_html=True)
 
-# ---------- CONTACT FORM ----------
+elif menu == "🗺️ Map":
+    st.header("📍 Lokasi SMART College")
+    smart_location = [3.1442368716195292, 101.72928812695515]
+    m = folium.Map(location=smart_location, zoom_start=17)
+    folium.Marker(smart_location, tooltip="SMART College", popup="SMART College, Kuala Lumpur").add_to(m)
+    st_folium(m, width=700, height=500)
 
-st.header("📬 Test Contact Form")
+elif menu == "📬 Contact":
+    st.header("📬 Test Contact Form")
+    with st.form("contact_form"):
+        name = st.text_input("Nama")
+        email = st.text_input("Email")
+        message = st.text_area("Mesej")
+        submitted = st.form_submit_button("SEND")
 
-with st.form("contact_form"):
-    name = st.text_input("Nama")
-    email = st.text_input("Email")
-    message = st.text_area("Mesej")
-    submitted = st.form_submit_button("SEND")
+    if submitted:
+        if name and email and message:
+            try:
+                sender = st.secrets["EMAIL_USER"]
+                pwd = st.secrets["EMAIL_PASS"]
+                receiver = st.secrets["EMAIL_TO"]
 
-if submitted:
-    if name and email and message:
-        try:
-            sender = st.secrets["EMAIL_USER"]
-            pwd = st.secrets["EMAIL_PASS"]
-            receiver = st.secrets["EMAIL_TO"]
+                msg = MIMEMultipart()
+                msg["From"] = sender
+                msg["To"] = receiver
+                msg["Subject"] = "Contact Form Test"
+                msg.attach(MIMEText(f"Name: {name}\nEmail: {email}\nMessage: {message}", "plain"))
 
-            msg = MIMEMultipart()
-            msg["From"] = sender
-            msg["To"] = receiver
-            msg["Subject"] = "Contact Form Test"
-            msg.attach(MIMEText(f"Name: {name}\nEmail: {email}\nMessage: {message}", "plain"))
+                with smtplib.SMTP("smtp.gmail.com", 587) as server:
+                    server.starttls()
+                    server.login(sender, pwd)
+                    server.sendmail(sender, receiver, msg.as_string())
 
-            with smtplib.SMTP("smtp.gmail.com", 587) as server:
-                server.starttls()
-                server.login(sender, pwd)
-                server.sendmail(sender, receiver, msg.as_string())
+                st.success("✅ Emel berjaya dihantar!")
+            except Exception as e:
+                st.error(f"❌ Gagal hantar emel: {e}")
+        else:
+            st.error("❗ Sila lengkapkan semua bahagian.")
 
-            st.success("✅ Emel berjaya dihantar!")
-        except Exception as e:
-            st.error(f"❌ Gagal hantar emel: {e}")
-    else:
-        st.error("❗ Sila lengkapkan semua bahagian.")
-
-#--------MAP--------
-
-st.write("---")
-st.header("📍 Lokasi SMART College")
-
-# Lokasi SMART College
-smart_location = [3.1442368716195292, 101.72928812695515]
-
-# Guna tiles yang ringan dan jelas
-m = folium.Map(location=smart_location, zoom_start=17,)
-
-# Letak marker
-folium.Marker(smart_location, tooltip="SMART College", popup="SMART College, Kuala Lumpur").add_to(m)
-
-# Paparkan map dalam Streamlit
-st_data = st_folium(m, width=700, height=500)
 

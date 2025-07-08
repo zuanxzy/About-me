@@ -8,17 +8,17 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-# ---------- SETTINGS ----------
+# ===== SETTINGS =====
 st.set_page_config(page_title="About Me", page_icon="👋", layout="wide")
 
-# ---------- LOAD CSS ----------
+# ===== CSS =====
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 local_css("style/style.css")
 
-# ---------- LOAD ASSETS ----------
+# ===== ASSETS =====
 def load_lottieurl(url):
     try:
         r = requests.get(url)
@@ -34,12 +34,12 @@ img1 = Image.open("images/kucing1.jpg")
 img2 = Image.open("images/kucing2.jpg")
 img3 = Image.open("images/kucing3.jpg")
 
-# ---------- SIDEBAR MENU ----------
-st.sidebar.title("📌 Menu")
-menu = st.sidebar.radio("Pergi ke:", ["🏠 Home", "🖼️ Gallery", "🗺️ Map", "📬 Contact"])
+# ===== SIDEBAR NAVIGATION =====
+st.sidebar.title("📌 Navigation")
+page = st.sidebar.radio("Pergi ke:", ["Home", "Gallery", "Contact", "Location"])
 
-# ---------- PAGE CONTENT ----------
-if menu == "🏠 Home":
+# ===== PAGE: HOME =====
+if page == "Home":
     with st.container():
         left_col, right_col = st.columns(2)
         with left_col:
@@ -68,34 +68,32 @@ if menu == "🏠 Home":
         with right_col:
             st_lottie(lottie_coding, height=300, key="coding")
 
-elif menu == "🖼️ Gallery":
-    st.header("📸 My Saya Gallery")
-    img_col1, img_col2, img_col3 = st.columns(3)
-    with img_col1:
-        st.image(img1, caption="Me Sleep", use_container_width=True)
-    with img_col2:
-        st.image(img2, caption="Me Wekap", use_container_width=True)
-    with img_col3:
-        st.image(img3, caption="Me Study", use_container_width=True)
+# ===== PAGE: GALLERY =====
+elif page == "Gallery":
+    with st.container():
+        st.header("📸 My Saya Gallery")
+        img_col1, img_col2, img_col3 = st.columns(3)
+        with img_col1:
+            st.image(img1, caption="Me Sleep", use_container_width=True)
+        with img_col2:
+            st.image(img2, caption="Me Wekap", use_container_width=True)
+        with img_col3:
+            st.image(img3, caption="Me Study", use_container_width=True)
 
-    st.write("---")
-    st.header("🎥 Monyet Joget")
-    if st.button("SYBAU 😎"):
-        st.markdown("""
-        <video width="100%" autoplay controls loop>
-            <source src="https://i.imgflip.com/49iy5a.mp4" type="video/mp4">
-        </video>
-        """, unsafe_allow_html=True)
+    with st.container():
+        st.write("---")
+        st.header("🎥 Monyet Joget")
+        if st.button("SYBAU 😎"):
+            st.markdown("""
+            <video width="100%" autoplay controls loop>
+                <source src="https://i.imgflip.com/49iy5a.mp4" type="video/mp4">
+            </video>
+            """, unsafe_allow_html=True)
 
-elif menu == "🗺️ Map":
-    st.header("📍 Lokasi SMART College")
-    smart_location = [3.1442368716195292, 101.72928812695515]
-    m = folium.Map(location=smart_location, zoom_start=17)
-    folium.Marker(smart_location, tooltip="SMART College", popup="SMART College, Kuala Lumpur").add_to(m)
-    st_folium(m, width=700, height=500)
+# ===== PAGE: CONTACT =====
+elif page == "Contact":
+    st.header("📬 Contact Form")
 
-elif menu == "📬 Contact":
-    st.header("📬 Test Contact Form")
     with st.form("contact_form"):
         name = st.text_input("Nama")
         email = st.text_input("Email")
@@ -126,4 +124,10 @@ elif menu == "📬 Contact":
         else:
             st.error("❗ Sila lengkapkan semua bahagian.")
 
-
+# ===== PAGE: LOCATION =====
+elif page == "Location":
+    st.header("📍 Lokasi SMART College")
+    smart_location = [3.1442368716195292, 101.72928812695515]
+    m = folium.Map(location=smart_location, zoom_start=17)
+    folium.Marker(smart_location, tooltip="SMART College", popup="SMART College, Kuala Lumpur").add_to(m)
+    st_folium(m, width=700, height=500)

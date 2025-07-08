@@ -37,7 +37,7 @@ if st.session_state.show_sidebar_hint:
         font-weight: 600;
         font-size: 14px;
     ">
-        👉 <span style="font-size:17px;">Click here to open the sidebar menu!</span>
+        👈 <span style="font-size:17px;">Click arrow to open the sidebar menu!</span>
     </div>
     """, unsafe_allow_html=True)
     time.sleep(5)

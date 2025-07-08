@@ -174,7 +174,3 @@ menu = st.sidebar.radio(
     "Navigation Menu",
     ("Home", "About", "Contact")
 )
-
-elif menu == "Contact":
-    st.header("Contact Information")
-    st.write("Email me at zuanxzy@gmail.com")

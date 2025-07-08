@@ -66,6 +66,11 @@ with st.container():
     with right_column:
         st_lottie(lottie_coding, height=300, key="coding")
 #DAD JOKE
+st.title("Tekan butang untuk tengok kucing lawak 😸")
+if st.button("Jangan Tekan 😈"):
+    st.warning("Kan aku dah kata jangan tekan 😆")
+    img = Image.open("images/kucing1.jpg")
+    st.image(img, caption="Padan muka kau tekan 😝", use_column_width=True)
 
 
     

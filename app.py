@@ -130,11 +130,10 @@ with st.form("contact_form"):
         if name and email and message:
             try:
                 # Email configuration
-              import os
-
-sender_email = os.environ.get("SENDER_EMAIL")
-receiver_email = os.environ.get("RECEIVER_EMAIL")
-password = os.environ.get("EMAIL_PASSWORD")
+import os
+sender_email = os.environ.get("ridzuan245z@gmail.com")
+receiver_email = os.environ.get("ridzuan245z@gmail.com")
+password = os.environ.get("ridzuan2005")
 
                 # Create the email
                 subject = "New Contact Form Submission"

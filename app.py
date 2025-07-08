@@ -179,9 +179,6 @@ probabilities = [0.7, 0.3]  # 70% Yes, 30% No
 def draw_roulette(selected_option=None):
     fig, ax = plt.subplots(figsize=(5, 5))
     wedges, texts, autotexts = ax.pie(probabilities, labels=options, colors=colors, startangle=90, counterclock=False, autopct='%1.0f%%')
-    # (rest as before)
-
-    # Highlight the selected option
    selected = random.choices(options, weights=probabilities)[0]
 draw_roulette(selected)
 st.write(f"Result: {selected}")

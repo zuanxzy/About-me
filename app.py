@@ -11,6 +11,23 @@ from email.mime.multipart import MIMEMultipart
 # ===== SETTINGS =====
 st.set_page_config(page_title="About Me", page_icon="👋", layout="wide")
 
+#--------skillsets-------
+st.write("---")
+st.header("🧠 My Skillset")
+
+skills = {
+    "Digital Forensics": 80,
+    "Fraud Investigation": 85,
+    "Python (Basic)": 60,
+    "Report Writing": 75,
+    "Teamwork & Communication": 90
+}
+
+for skill, level in skills.items():
+    st.write(f"{skill}")
+    st.progress(level)
+
+
 # ===== CSS =====
 def local_css(file_name):
     with open(file_name) as f:

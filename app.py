@@ -68,12 +68,12 @@ with st.container():
 #DAD JOKE
 import streamlit as st
 
-st.title("Tekan Butang untuk Tengok Video Meme 🎥")
+st.title("Click button tu kalau nak tengok monyet joget 🎥")
 
-if st.button("Tunjuk Video 😎"):
+if st.button("MONYET AFRIKA UTARA 😎"):
     st.markdown(
         """
-        <video width="100%" autoplay loop muted>
+        <video width="100%" autoplay loop>
             <source src="https://i.imgflip.com/49iy5a.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>

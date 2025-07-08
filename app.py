@@ -153,7 +153,7 @@ import streamlit as st
 import random
 import matplotlib.pyplot as plt
 
-st.title("🎰 take me to internship yes/no")
+st.title("🎰 take me to internship yes/no") not working yet
 
 # Define Yes/No sections
 options = ["Yes", "Big Yes"]

@@ -11,36 +11,6 @@ from email.mime.multipart import MIMEMultipart
 # ===== SETTINGS =====
 st.set_page_config(page_title="About Me", page_icon="👋", layout="wide")
 
-import time
-
-# === TUTORIAL BUBBLE / GUIDE ===
-if "show_sidebar_hint" not in st.session_state:
-    st.session_state.show_sidebar_hint = True
-
-if st.session_state.show_sidebar_hint:
-    st.markdown("""
-        <div style="
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background-color: #fffae6;
-            padding: 12px 18px;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-            z-index: 9999;
-            font-size: 15px;
-            font-weight: 500;
-            color: #333;
-        ">
-            👉 Tip: Click the arrow at the top-left to open the sidebar menu.
-        </div>
-    """, unsafe_allow_html=True)
-
-    time.sleep(5)
-    st.session_state.show_sidebar_hint = False
-
-
-
 # ===== CSS =====
 def local_css(file_name):
     with open(file_name) as f:

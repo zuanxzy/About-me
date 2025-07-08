@@ -157,3 +157,14 @@ st.markdown("""
     </audio>
 """, unsafe_allow_html=True)
 
+# ===== FOOTER =====
+st.markdown("""
+    <hr style="margin-top: 50px; margin-bottom: 10px; border: 0.5px solid #ccc;" />
+    <div style='text-align: center; color: gray; font-size: 14px; padding-bottom: 15px;'>
+        Dibina dengan ❤️ oleh Muhammad Ridzuan • <a href='mailto:ridzuan245z@gmail.com'>Email Me</a> • 
+        <a href='https://linktr.ee/zunohuzz' target='_blank'>Linktree</a><br>
+        © 2025 All Rights Reserved
+    </div>
+""", unsafe_allow_html=True)
+
+

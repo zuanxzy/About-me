@@ -128,13 +128,18 @@ if submitted:
 #MAP
 import pandas as pd
 
-st.header("📍 SEMART KOLEJ")
+st.write("---")
+st.header("📍 Lokasi SMART College")
 
-# Contoh lokasi - boleh tukar ke lokasi kau
-df = pd.DataFrame({
-    'lat': [3.1442368716195292],
-    'lon': [101.72928812695515]
-})
+# Lokasi SMART College
+smart_location = [3.1442368716195292, 101.72928812695515]
 
-st.map(df)
+# Guna tiles yang ringan dan jelas
+m = folium.Map(location=smart_location, zoom_start=17, tiles="CartoDB positron")
+
+# Letak marker
+folium.Marker(smart_location, tooltip="SMART College", popup="SMART College, Kuala Lumpur").add_to(m)
+
+# Paparkan map dalam Streamlit
+st_data = st_folium(m, width=700, height=500)
 

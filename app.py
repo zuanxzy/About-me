@@ -71,7 +71,15 @@ import streamlit as st
 st.title("Tekan Butang untuk Tengok Video Meme 🎥")
 
 if st.button("Tunjuk Video 😎"):
-    st.video("https://i.imgflip.com/49iy5a.mp4")
+    st.markdown(
+        """
+        <video width="100%" autoplay loop muted>
+            <source src="https://i.imgflip.com/49iy5a.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        """,
+        unsafe_allow_html=True
+    )
 
 #projects
 with st.container():

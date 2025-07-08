@@ -66,11 +66,11 @@ with st.container():
     st.header("📸 My Gallery")
     img_col1, img_col2, img_col3 = st.columns(3)
     with img_col1:
-        st.image(img1, caption="Kucing 1", use_column_width=True)
+        st.image(img1, caption="Kucing 1", use_container_width=True)
     with img_col2:
-        st.image(img2, caption="Kucing 2", use_column_width=True)
+        st.image(img2, caption="Kucing 2", use_container_width=True)
     with img_col3:
-        st.image(img3, caption="Kucing 3", use_column_width=True)
+        st.image(img3, caption="Kucing 3", use_container_width=True)
 
 # ---------- JOKE VIDEO ----------
 with st.container():

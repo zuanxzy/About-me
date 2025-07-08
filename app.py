@@ -70,9 +70,9 @@ import streamlit as st
 
 st.title("Selamat Datang ke Website Lawak Aku 😂")
 
-if st.button("Jangan Tekan 😈"):
+if st.button("Monyet Hot😈"):
     st.warning("Kan aku dah kata jangan tekan 😆")
-    st.image("https://i.imgflip.com/2/65939r.jpg", caption="Padan muka kau tekan 😝", width=500)
+    st.image("https://i.imgflip.com/49iy5a.mp4", caption="Padan muka kau tekan 😝", width=500)
 
 #projects
 with st.container():

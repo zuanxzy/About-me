@@ -10,9 +10,6 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-# Load .env file
-load_dotenv()
-
 # ---------- SETTINGS ----------
 st.set_page_config(page_title="About Me", page_icon="👋", layout="wide")
 

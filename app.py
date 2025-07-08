@@ -66,6 +66,11 @@ with st.container():
     with right_column:
         st_lottie(lottie_coding, height=300, key="coding")
 #DAD JOKE
+import streamlit as st
+from PIL import Image
+
+st.title("Website Lawak Dengan Kucing 5 😹")
+
 if st.button("Jangan Tekan 😈"):
     st.warning("Kan aku dah kata jangan tekan 😆")
     img = Image.open("images/kucing5.jpg")  # Pastikan nama fail betul

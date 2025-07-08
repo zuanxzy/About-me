@@ -122,3 +122,17 @@ if submitted:
             st.error(f"❌ Gagal hantar emel: {e}")
     else:
         st.error("❗ Sila lengkapkan semua bahagian.")
+
+#MAP
+import pandas as pd
+
+st.header("📍 Lokasi Saya")
+
+# Contoh lokasi - boleh tukar ke lokasi kau
+df = pd.DataFrame({
+    'lat': [3.1390],
+    'lon': [101.6869]
+})
+
+st.map(df)
+

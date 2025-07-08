@@ -71,7 +71,7 @@ st.title("Website Lawak")
 
 if st.button("Jangan Tekan 😈"):
     st.warning("Kan aku dah kata jangan tekan 😆")
-    img = Image.open("kokekab1.jpg")
+    img = Image.open("kucing5.jpeg")
     st.image(img, caption="Padan muka kau 😝", use_column_width=True)
     
 

@@ -1,4 +1,4 @@
-import streamlit as st
+ARTimport streamlit as st
 from PIL import Image
 from pathlib import Path
 import requests
@@ -126,12 +126,12 @@ if submitted:
 #MAP
 import pandas as pd
 
-st.header("📍 Lokasi Saya")
+st.header("📍 SEMART KOLEJ")
 
 # Contoh lokasi - boleh tukar ke lokasi kau
 df = pd.DataFrame({
-    'lat': [3.1390],
-    'lon': [101.6869]
+    'lat': [3.1442368716195292],
+    'lon': [101.72928812695515]
 })
 
 st.map(df)

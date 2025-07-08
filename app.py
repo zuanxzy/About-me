@@ -3,6 +3,7 @@ from PIL import Image
 from pathlib import Path
 import requests
 from streamlit_lottie import st_lottie
+import os 
 
 # ---------- SETTINGS ----------
 st.set_page_config(page_title="About Me", page_icon="👋", layout="wide")

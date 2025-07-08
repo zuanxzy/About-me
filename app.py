@@ -150,6 +150,8 @@ if name and email and message:
         # ... rest of your code ...
     except Exception as e:
         st.error(f"An error occurred while sending the email: {e}")
+else:
+    st.error("Please fill out all fields.")
 
                 # Create the email
                 subject = "New Contact Form Submission"

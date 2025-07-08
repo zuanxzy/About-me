@@ -191,8 +191,3 @@ elif menu == "Contact":
     st.header("Contact Information")
     st.write("Email us at zuanxzy@gmail.com")
         wedges[index].set_linewidth(3)
-
-# Button to spin the wheel
-if st.button("Spin the Wheel 🎡"):
-    result = random.choice(options)
-    st.success(f"🎡 The wheel landed on: **{result}** 🎲")

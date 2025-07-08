@@ -2,6 +2,7 @@ from PIL import Image
 import requests
 import streamlit as st
 from streamlit_lottie import st_lottie
+from pathlib import Path
 
 st.set_page_config(page_title="ABOUT ME", page_icon=":tada:", layout= "wide")
 
@@ -18,9 +19,14 @@ def local_css(file_name):
 local_css("style/style.css")
 
 #load assets
+lottie_coding = load_lottieurl("...json")
+if lottie_coding:
+    st_lottie(lottie_coding, height=300, key="coding")
+else:
+    st.error("Lottie animation failed to load.")
 lottie_coding = load_lottieurl("https://lottie.host/7aa80ad3-97bb-4b64-aa94-5800263195c5/aoW6sdJFhW.json")
 lottie_hai = load_lottieurl("https://lottie.host/afb5e48c-63ad-4589-a51a-069a8faa7cc0/2UOBuEjjFP.json")
-image_contact_form = Image.open("images/kucing1.jpg")
+image_contact_form = Image.open(Path("images/kucing1.jpg"))
 image_lottie_animation = Image.open("images/kucing2.jpg")
 image_contact_form1 = Image.open("images/kucing3.jpg")
 
@@ -66,8 +72,6 @@ with st.container():
     with right_column:
         st_lottie(lottie_coding, height=300, key="coding")
 #DAD JOKE
-import streamlit as st
-
 st.title("Click button tu kalau nak tengok monyet joget 🎥")
 
 if st.button("MONYET AFRIKA UTARA 😎"):
@@ -101,7 +105,6 @@ with st.container():
         st.write("""I save my enegi by sleep""")
 
 #contact
-import streamlit as st
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -163,25 +166,25 @@ with st.container():
     st.write("___")
     st.header("ROULETTE")
 
-import streamlit as st
 import random
 import matplotlib.pyplot as plt
 
 st.title("🎰 take me to internship yes/no") #
 
 # Define Yes/No sections
-options = ["Yes", "Big Yes"]
+options = ["Yes", "No"]
 colors = ["green", "red"]
-probabilities = [100, 0.00]  # 70% chance of Yes, 30% chance of No
+probabilities = [0.7, 0.3]  # 70% Yes, 30% No
 
 def draw_roulette(selected_option=None):
     fig, ax = plt.subplots(figsize=(5, 5))
-    wedges, texts = ax.pie([1, 1], labels=options, colors=colors, startangle=90, counterclock=False, autopct='%1.0f%%')
+    wedges, texts, autotexts = ax.pie(probabilities, labels=options, colors=colors, startangle=90, counterclock=False, autopct='%1.0f%%')
+    # (rest as before)
 
     # Highlight the selected option
-    if selected_option is not None:
-        index = options.index(selected_option)
-        wedges[index].set_edgecolor("yellow")
+   selected = random.choices(options, weights=probabilities)[0]
+draw_roulette(selected)
+st.write(f"Result: {selected}")
 
 
 

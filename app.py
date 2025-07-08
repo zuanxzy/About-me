@@ -11,6 +11,14 @@ from email.mime.multipart import MIMEMultipart
 # ===== SETTINGS =====
 st.set_page_config(page_title="About Me", page_icon="👋", layout="wide")
 
+
+# ===== CSS =====
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+local_css("style/style.css")
+
 #--------skillsets-------
 st.write("---")
 st.header("🧠 My Skillset")
@@ -26,14 +34,6 @@ skills = {
 for skill, level in skills.items():
     st.write(f"{skill}")
     st.progress(level)
-
-
-# ===== CSS =====
-def local_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-
-local_css("style/style.css")
 
 # ===== ASSETS =====
 def load_lottieurl(url):

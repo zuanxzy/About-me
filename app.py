@@ -63,7 +63,7 @@ with st.container():
 
         <div class="justified-text">
         During my time at college, I have developed a strong foundation in various areas, including investigative techniques, corporate law, and understanding criminal behavior. Additionally, I have honed essential soft skills such as time management and effective collaboration in group settings. These experiences have equipped me with a well-rounded skill set, enabling me to approach challenges with analytical thinking, legal awareness, and teamwork. I am eager to apply these skills in a professional environment and continue growing through hands-on experience.               """, unsafe_allow_html=True)
-        st.write("[My resume >](https://drive.google.com/file/d/1PVgxdNVHr3rovMIxur7ekz6ulyGHqVYh/view?usp=drive_link)")
+        st.write("[My resume >](https://drive.google.com/file/d/1ee1u7Z7JFByLf4gfSn2biWBL7FmdSsaU/view?usp=drive_link)")
     with right_column:
         st_lottie(lottie_coding, height=300, key="coding")
 

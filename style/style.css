@@ -92,3 +92,13 @@ button[type=submit]:hover {
   }
 }
 
+/* Highlight sidebar toggle arrow */
+.css-k0sv6k {
+    filter: hue-rotate(120deg) brightness(1.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.css-k0sv6k:hover {
+    filter: hue-rotate(220deg) brightness(1.5);
+}
+

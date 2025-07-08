@@ -9,7 +9,6 @@ import os
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from dotenv import load_dotenv
 
 # Load .env file
 load_dotenv()
@@ -107,9 +106,10 @@ with st.container():
     if submitted:
         if name and email and message:
             try:
-                sender_email = os.getenv("EMAIL_USER")
-                receiver_email = os.getenv("EMAIL_TO")
-                password = os.getenv("EMAIL_PASS")
+                # Guna Streamlit Secrets
+                sender_email = st.secrets["EMAIL_USER"]
+                receiver_email = st.secrets["EMAIL_TO"]
+                password = st.secrets["EMAIL_PASS"]
 
                 subject = "New Message from Streamlit Contact Form"
                 body = f"Name: {name}\nEmail: {email}\nMessage: {message}"

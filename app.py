@@ -191,9 +191,6 @@ if menu == "Cat Photo":
     st.title("📸 Gambar Kucing")
     try:
         img = Image.open("https://i.imgflip.com/2/33egr8.jpg")
-        st.image(img, caption="Kucing1 tengah pose 🐱", width=300)
-    except:
-        st.error("Gambar tak jumpa! Pastikan 'images/kucing1.jpg' wujud.")
 
 # Page: About Me
 elif menu == "About Me":
